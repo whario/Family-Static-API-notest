@@ -21,15 +21,25 @@ class FamilyStructure:
 
     def add_member(self, member):
         # fill this method and update the return
-        pass
+        member["last_name"]=self.last_name
+        member["id"]=self._generateId()
+        if member["name"] is not None and member["age"] is not None and member["lucky_numbers"] is not None:
+            self._members.append(member)
+        print(member)
 
     def delete_member(self, id):
         # fill this method and update the return
-        pass
+        print(self._members, "antes borrado")
+        for familiar in self._members:
+            if familiar["id"]==id: #familiar es como llamo al objeto. Si familiar es igual al id que le estoy pasando
+                self._members.remove(familiar)
+        print(self._members, "despues borrado")
 
     def get_member(self, id):
         # fill this method and update the return
-        pass
+        for familiar in self._members:
+            if familiar["id"]==id:
+                return familiar
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
